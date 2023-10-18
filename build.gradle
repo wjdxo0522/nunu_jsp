@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/com/example']  // 이게 의도적이라면 그대로 둘 수 있습니다.
+        }
+    }
+}
+
+dependencies {
+    // Servlet API for compilation but not for deployment (provided by the container)
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+        
+    
+}
+
+sourceCompatibility = 1.8  // 가능하다면 이것을 업데이트해 보세요
+targetCompatibility = 1.8  // 가능하다면 이것을 업데이트해 보세요
+
+war {
+    webAppDirName = 'WebContent'  // 웹 콘텐츠 디렉터리 변경
+}
